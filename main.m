@@ -5,7 +5,7 @@ PLOT = 1;
 EXPLORE = 0;
 
 % ----- Create and display circuit
-circuit = Circuit('img/circuit_resized.png');
+circuit = Circuit('circuit_resized.png');
 circuit.start=[38;19];
 circuit.goal=[316;18];
 
@@ -50,7 +50,7 @@ while (1)
     car_location = zeros(2, 1);
     [car_location(2), car_location(1)] = ind2sub([size(circuit.img_circuit, 1) size(circuit.img_circuit, 2)], random_start);
     
-    car = MicroMachine('img/car_resized.png', car_location);
+    car = MicroMachine('car_resized.png', car_location);
     car.angle = car.angles_vec(randi(numel(car.angles_vec))); %random angle
     
     actions = {@car.steer_left,@car.steer_right,@car.accelerate};
@@ -137,9 +137,3 @@ while (1)
 %     end
     
 end
-
-
-
-
-%     ac=randi(4,1);
-%     vec_actions{ac}();
